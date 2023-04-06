@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="popup.css" />
+  <title>Who's Tracking Me?</title>
+</head>
+<body>
+<header>Who's Tracking Me?</header>
+<img class="logo" src="../images/tracking-icon.jpg" alt="Who's Tracking Me?" />
+<!--    <nav>-->
+<!--      <ul>-->
+<!--        <li><a href="/dashboard.html">Dashboard</a></li>-->
+<!--        <li><a href="popup.html">Setting</a></li>-->
+<!--        <li><a href="#">....</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+<div class="container">
+  <div class="left-column">
+    <ul id="list-of-sections"></ul>
+  </div>
+  <div class="right-column">
+    <div id="item-content" class="content">
+      <h3 id="tracker-name"></h3>
+      <div id="tracker-cookies"></div>
+      <div id="tracker-data-layer">
+        <h4>Data Layer</h4>
+        <div id="tracker-data-layer-content">
+          <h5>Events</h5>
+          <ul id="list-of-events"></ul>
+        </div>
+      </div>
+      <div>
+        <h4>Personal Data</h4>
+        <ul id="list-of-personal-data"></ul>
+      </div>
+      <div id="tracker-storage"></div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="popup.js"></script>
+<script type="module" src="scripts/mapper.js"></script>
+</body>
+</html>

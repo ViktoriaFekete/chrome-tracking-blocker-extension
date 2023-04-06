@@ -1,0 +1,42 @@
+{
+  "name": "Who's Tracking Me?",
+  "author": "vix",
+  "description": "Show who is tracking data about me and block tracking scripts on the web",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["storage", "activeTab","scripting","cookies", "webNavigation", "tabs", "webRequest",    "browsingData", "debugger"  ],
+  "host_permissions": ["*://*/*"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'; img-src 'self'"
+  },
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "128": "/images/whosTrackingMe128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "128": "/images/whosTrackingMe128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["scripts/content-script.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [ {
+    "resources": ["options/options.js", "popup/popup.js", "scripts/mapper.js"],
+    "matches": ["*://*/*"],
+    "type": "module"
+  }]
+}
